@@ -1,26 +1,23 @@
 import { createReducer, createActions } from 'reduxsauce'
 
+/* Initial State */
+export const INITIAL_STATE = {
+  number: 1,
+}
+
 /* Types & Actions Creators */
-const { Types, Creators } = createActions({
+export const { Types: ExampleTypes, Creators } = createActions({
   sayHello: [],
   setNumber: ['number'],
 })
 
-export const ExampleType = Types
-export default Creators
-
-/* Initial State */
-export const INITIAL_STATE = {
-  number: 5,
-}
-
 /* Methods */
-const setNumber = (state = INITIAL_STATE, { number }) => ({
+export const setNumber = (state = INITIAL_STATE, { number }) => ({
   ...state,
-  number
+  number,
 })
 
 /* Reducers */
-export const reducer = createReducer(INITIAL_STATE, {
-  [Types.SET_NUMBER]: setNumber,
+export default createReducer(INITIAL_STATE, {
+  [ExampleTypes.SET_NUMBER]: setNumber,
 })
